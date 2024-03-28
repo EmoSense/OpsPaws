@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: v2
 
       - name: Set up JDK ${{matrix.java}}
         uses: actions/setup-java@v2
@@ -41,6 +43,8 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
+        with:
+          ref: v2
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
@@ -50,8 +54,8 @@ jobs:
 
       - name: Run tests and generate report
         run: |
-            ./mvnw test
-            ./mvnw surefire-report:report
+          ./mvnw test
+          ./mvnw surefire-report:report
       
       - name: Upload test results
         uses: actions/upload-artifact@v2
@@ -68,6 +72,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: v2
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
