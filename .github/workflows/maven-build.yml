@@ -48,8 +48,15 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
-      - name: Run tests
+      - name: Run tests and generate report
         run: ./mvnw test
+             ./mvnw surefire-report:report
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: target/surefire-reports
       
   sonarcloud:
     name: SonarCloud Analysis
