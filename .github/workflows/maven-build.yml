@@ -2,9 +2,9 @@ name: Java CI with Maven and SonarCloud
 
 on:
   push:
-    branches: [developmetn]
+    branches: [development, main]
   pull_request:
-    branches: [development]
+    branches: [development, main]
 
 jobs:
   build:
