@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-03-08T11:22:11.009Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="k3uzXZZA0wcqUNtnZL_P" version="24.0.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-03-28T15:30:39.187Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="LrfHnR5dAX6VIW5xZyCL" version="24.0.2" type="device">
   <diagram name="Page-1" id="af4GVYSNxQJy1SBkmtvf">
-    <mxGraphModel dx="1690" dy="972" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1215" dy="1186" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -16,38 +16,46 @@
         <mxCell id="GdZUp0uO78zyMNqlWGA2-2" value="&lt;b&gt;Maven&lt;/b&gt;&lt;div&gt;Build&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="112" y="-25" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="GdZUp0uO78zyMNqlWGA2-14" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-3" target="GdZUp0uO78zyMNqlWGA2-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="GdZUp0uO78zyMNqlWGA2-14" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GdZUp0uO78zyMNqlWGA2-3" target="GdZUp0uO78zyMNqlWGA2-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="54" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-3" value="&lt;b&gt;GitHub Actions&lt;/b&gt;&lt;div&gt;Automated build and test&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="314" y="-25" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="GdZUp0uO78zyMNqlWGA2-17" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-4" target="GdZUp0uO78zyMNqlWGA2-7" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="GdZUp0uO78zyMNqlWGA2-17" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="GdZUp0uO78zyMNqlWGA2-4" target="GdZUp0uO78zyMNqlWGA2-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-209" y="268" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-4" value="&lt;b&gt;Docker&lt;/b&gt;&lt;div&gt;Container&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-102" y="99" width="120" height="60" as="geometry" />
+          <mxGeometry x="-102.5" y="171.5" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-16" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-5" target="GdZUp0uO78zyMNqlWGA2-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-5" value="&lt;b&gt;Google Cloud Platform&lt;/b&gt;&lt;div&gt;Resource provisioning&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="97.5" y="84.5" width="149" height="90" as="geometry" />
+          <mxGeometry x="97" y="157" width="149" height="90" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-15" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-6" target="GdZUp0uO78zyMNqlWGA2-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-6" value="&lt;b&gt;Ansible&lt;/b&gt;&lt;div&gt;Configure RTE&lt;/div&gt;&lt;div&gt;Automates configuration of servers ets&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="301" y="84.5" width="146" height="89" as="geometry" />
+          <mxGeometry x="300.5" y="157" width="146" height="89" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-18" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-7" target="GdZUp0uO78zyMNqlWGA2-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IwQCjJib73bQLL7nlJLD-2" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="GdZUp0uO78zyMNqlWGA2-7" target="IwQCjJib73bQLL7nlJLD-1">
+        <mxCell id="IwQCjJib73bQLL7nlJLD-2" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-7" target="IwQCjJib73bQLL7nlJLD-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-7" value="&lt;b&gt;GitHub Actions&lt;/b&gt;&lt;br&gt;&lt;div&gt;Automate deployment&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-113.5" y="210" width="143" height="86" as="geometry" />
+          <mxGeometry x="-108.25" y="362" width="143" height="86" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-19" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-8" target="GdZUp0uO78zyMNqlWGA2-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -56,19 +64,19 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-8" value="&lt;b&gt;Prometheus&lt;/b&gt;&lt;div&gt;Collect metrics&lt;/div&gt;&lt;div&gt;Monitor app health&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="99.25" y="210" width="145.5" height="86" as="geometry" />
+          <mxGeometry x="104.5" y="362" width="145.5" height="86" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-20" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-9" target="GdZUp0uO78zyMNqlWGA2-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-9" value="&lt;b&gt;Slack&lt;/b&gt;&lt;div&gt;Feedback&lt;/div&gt;&lt;div&gt;Notifications&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="314" y="223" width="120" height="60" as="geometry" />
+          <mxGeometry x="319.25" y="375" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-10" value="Kanban&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Manage and improve pipeline&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="301" y="323.5" width="146" height="74" as="geometry" />
+          <mxGeometry x="306.25" y="475.5" width="146" height="74" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-22" value="&lt;b&gt;Grafana&lt;/b&gt;&lt;div&gt;Visualise and analyse metrics&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="97.81" y="317" width="148.37" height="87" as="geometry" />
+          <mxGeometry x="103.06" y="469" width="148.37" height="87" as="geometry" />
         </mxCell>
         <mxCell id="GdZUp0uO78zyMNqlWGA2-25" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="GdZUp0uO78zyMNqlWGA2-22" target="GdZUp0uO78zyMNqlWGA2-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -76,8 +84,11 @@
         <mxCell id="hzx5OJfuM0Wc4K_ixEkW-3" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" parent="1" vertex="1">
           <mxGeometry x="-93.5" y="-89.5" width="75" height="75" as="geometry" />
         </mxCell>
-        <mxCell id="IwQCjJib73bQLL7nlJLD-1" value="&lt;b&gt;SonarCloud&lt;/b&gt;&lt;div&gt;Monitoring&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-109" y="331" width="134" height="73" as="geometry" />
+        <mxCell id="IwQCjJib73bQLL7nlJLD-1" value="&lt;b&gt;SonarCloud&lt;/b&gt;&lt;div&gt;Monitoring&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-103.75" y="483" width="134" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="vCEG_FIzw9R1RWKmJVgw-2" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.github_code;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="-75" width="50" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
