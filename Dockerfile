@@ -1,7 +1,8 @@
-FROM openjdk:17-jdk-alpine
-
-COPY target/*.jar /app.jar
+FROM openjdk:17-jdk
 
 WORKDIR /
 
 CMD ["java", "-jar", "app.jar"]
+
+
+
