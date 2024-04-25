@@ -1,0 +1,36 @@
+name: Docker Build, Push & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker:
+    name: Build, Push & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Build Docker image and push to docker hub
+        run: |
+          docker build -t deelee333/pet_clinic_project/pet-clinic:latest .
+          docker login -u deelee333 -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+          docker push deelee333/pet_clinic_project/pet-clinic:latest
+
+      - name: Deploy to Azure Container Instances
+        run: |
+          az container create \
+            --resource-group <RESOURCE_GROUP_NAME> \
+            --name <CONTAINER_INSTANCE_NAME> \
+            --image <DOCKER_HUB_USERNAME>/<IMAGE_NAME>:<TAG> \
+            --dns-name-label <DNS_NAME_LABEL> \
+            --ports <PORTS> \
+            --cpu <CPU> \
+            --memory <MEMORY> \
+            --restart-policy Always
