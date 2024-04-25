@@ -122,32 +122,31 @@ jobs:
 
 
     steps:
-      - name: Start Docker Container
+      - name: Stop and Remove Existing Container
         run: |
           docker stop pet_clinic_container || true
           docker rm pet_clinic_container || true
-          docker run --name pet_clinic_container -d -p 8080:8080 deelee333/pet_clinic_project:latest
-          echo "Container Initialised"
+          echo "Container Stopped and Removed"
 
-      - name: Wait for Container to Start
+      - name: Pull Latest Image from Docker Hub
         run: |
-          sleep 30
-          echo "Container Started"
-
-      - name: Start Docker Container
-        run: |
-          docker start d69d645121e342106c768c6a31f6139681db1fc9a220c26aef2e7142f972aae9
-          echo "Container Started"
-
-      - name: Wait for Container to Start
-        run: sleep 10s
-
-      - name: Pull Image from Hub to Container
-        run: |
-          docker exec pet_clinic_container docker pull deelee333/pet_clinic_project:latest
+          docker pull deelee333/pet_clinic_project:latest
           echo "Image Pulled"
 
-      - name: Run Container Image
+      - name: Start New Container
         run: |
-          docker exec pet_clinic_container docker run deelee333/pet_clinic_project:latest
-          echo "Container Image Running"
+          docker run --name pet_clinic_container -d -p 8080:8080 deelee333/pet_clinic_project:latest
+          echo "Container Started"
+
+      - name: Wait for Container to Start
+        run: |
+          for i in {1..30}; do
+            if docker inspect -f '{{.State.Running}}' pet_clinic_container &> /dev/null; then
+              echo "Container is running"
+              break
+            else
+              echo "Waiting for container to start..."
+              sleep 5
+            fi
+          done
+
