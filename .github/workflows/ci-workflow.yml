@@ -167,6 +167,7 @@ jobs:
 
       - name: Run Post Deployment Test
         run: |
-          curl -sSf http://localhost:8080
+          CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id_or_name>)
+          curl -sSf http://$CONTAINER_IP:8080
           echo "Post Deployment Test Passed"
 
