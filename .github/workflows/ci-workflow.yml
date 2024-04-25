@@ -112,25 +112,54 @@ jobs:
           docker tag deelee333/pet_clinic_project deelee333/pet_clinic_project:latest
           docker push deelee333/pet_clinic_project:latest
           echo "Image pushed to Docker Hub"
+
+  azure-deploy:
+    name: Deploy to Azure Container Instances
+    needs: [build, test, sonarcloud, docker]
+    runs-on: ubuntu-latest
+
+    
+
+    steps:
+      - name: login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group
+        run: |
+          az group create --name pet-clinic-resource-group --location East US
+
+      - name: Deploy to Azure Container Instances
+        run: |
+          az container create \
+            --resource-group <RESOURCE_GROUP_NAME> \
+            --name <CONTAINER_INSTANCE_NAME> \
+            --image deelee333/pet_clinic_project:latest \
+            --dns-name-label <DNS_NAME_LABEL> \
+            --ports <PORTS> \
+            --cpu <CPU> \
+            --memory <MEMORY> \
+            --restart-policy Always
       
-      - name: Start Docker Container
-        run: |
-          docker stop pet_clinic_container || true
-          docker rm pet_clinic_container || true
-          docker run --name pet_clinic_container -d -p 8080:8080 deelee333/pet_clinic_project:latest
-          echo "Container Initialised"
+      # - name: Start Docker Container
+      #   run: |
+      #     docker stop pet_clinic_container || true
+      #     docker rm pet_clinic_container || true
+      #     docker run --name pet_clinic_container -d -p 8080:8080 deelee333/pet_clinic_project:latest
+      #     echo "Container Initialised"
 
-      - name: Wait for Container to Start
-        run: |
-          sleep 30
-          echo "Container Started"
+      # - name: Wait for Container to Start
+      #   run: |
+      #     sleep 30
+      #     echo "Container Started"
 
-      - name: Pull Image from Hub to Container
-        run: |
-          docker exec pet_clinic_container docker pull deelee333/pet_clinic_project:latest
-          echo "Image Pulled"
+      # - name: Pull Image from Hub to Container
+      #   run: |
+      #     docker exec pet_clinic_container docker pull deelee333/pet_clinic_project:latest
+      #     echo "Image Pulled"
 
-      - name: Run Container Image
-        run: |
-          docker exec pet_clinic_container docker run deelee333/pet_clinic_project:latest
-          echo "Container Image Running"
+      # - name: Run Container Image
+      #   run: |
+      #     docker exec pet_clinic_container docker run deelee333/pet_clinic_project:latest
+      #     echo "Container Image Running"
