@@ -149,4 +149,26 @@ jobs:
               sleep 5
             fi
           done
+  post_deploy_test:
+    name: Post Deployment Test
+    needs: docker_deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for Container to Start
+        run: |
+          for i in {1..30}; do
+            if docker inspect -f '{{.State.Running}}' pet_clinic_container &> /dev/null; then
+              echo "Container is running"
+              break
+            else
+              echo "Waiting for container to start..."
+              sleep 5
+            fi
+          done
+
+      - name: Run Post Deployment Test
+        run: |
+          curl -sSf http://localhost:8080
+          echo "Post Deployment Test Passed"
 
