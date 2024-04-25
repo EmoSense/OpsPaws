@@ -165,3 +165,6 @@ jobs:
         - name: Pull Docker Image
           run: docker pull deelee333/pet_clinic_project:latest
 
+        - name: Run Integration Tests
+          run: docker run --rm deelee333/pet_clinic_project:latest mvn verify -Dspring.profiles.active=dev
+
