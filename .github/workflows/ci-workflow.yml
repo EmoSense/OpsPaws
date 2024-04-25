@@ -106,8 +106,8 @@ jobs:
 
       - name: Build Docker image, tag it, and push to Docker hub
         run: |
-          docker build -t deelee333/pet_clinic_project:latest .
-          docker tag pet-project deelee333/pet_clinic_project:latest
+          docker build -t deelee333/pet_clinic_project .
+          docker tag deelee333/pet_clinic_project deelee333/pet_clinic_project:latest
           docker push deelee333/pet_clinic_project:latest
   
   # azure:
