@@ -118,29 +118,30 @@ jobs:
     needs: [build, test, sonarcloud, docker]
     runs-on: ubuntu-latest
 
-    
-
     steps:
       - name: login to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Create Resource Group
-        run: |
-          az group create --name pet-clinic-resource-group --location East US
-
-      - name: Deploy to Azure Container Instances
+      - name: Deploy to Container Instance
         run: |
           az container create \
-            --resource-group <RESOURCE_GROUP_NAME> \
-            --name <CONTAINER_INSTANCE_NAME> \
+            --resource-group pet-clinic-resource-group \
+            --name pet-clinic-container \
             --image deelee333/pet_clinic_project:latest \
-            --dns-name-label <DNS_NAME_LABEL> \
-            --ports <PORTS> \
-            --cpu <CPU> \
-            --memory <MEMORY> \
+            --ports 8080 \
+            --cpu 1 \
+            --memory 1 \
             --restart-policy Always
+
+      - name: Verify Container Deployment
+        run: |
+          az container show --name pet-clinic-container --resource-group pet-clinic-resource-group
+          echo "Container Deployed Successfully"
+
+          
+
       
       # - name: Start Docker Container
       #   run: |
