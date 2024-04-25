@@ -90,7 +90,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=EmoSense_OpsPaws
 
   docker:
-    name: Build, Push & Deploy
+    name: Docker Image Build and Push to Hub
     needs: [build, test, sonarcloud]
     runs-on: ubuntu-latest
 
@@ -110,24 +110,24 @@ jobs:
           docker tag deelee333/pet_clinic_project deelee333/pet_clinic_project:latest
           docker push deelee333/pet_clinic_project:latest
   
-  # azure:
-  #   name: Deploy to Azure Container Instances
-  #   needs: docker
-  #   runs-on: ubuntu-latest
+  azure:
+    name: Deploy to Azure Container Instances
+    needs: docker
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Login to Azure
-  #       uses: azure/login@v1
-  #       with:
-  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-  #     - name: Create Containter Instance
-  #       run: |
-  #         az container create \
-  #           --resource-group 25b55f34-79e2-6d69-707f-2e7264b29ccb\
-  #           --name pet_container \
-  #           --image deelee333/pet_clinic_projectproject:latest \
-  #           --ports 8080 \
-  #           --cpu 1 \
-  #           --memory 1 \
-  #           --restart-policy Always
+      - name: Create Containter Instance
+        run: |
+          az container create \
+            --resource-group 25b55f34-79e2-6d69-707f-2e7264b29ccb\
+            --name pet_container \
+            --image deelee333/pet_clinic_project:latest \
+            --ports 8080 \
+            --cpu 1 \
+            --memory 1 \
+            --restart-policy Always
