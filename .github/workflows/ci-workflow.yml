@@ -136,6 +136,7 @@ jobs:
 
       - name: Pull Image from Hub to Container
         run: |
+          docker start pet_clinic_container 
           docker exec pet_clinic_container docker pull deelee333/pet_clinic_project:latest
           echo "Image Pulled"
 
