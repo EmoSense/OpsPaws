@@ -100,20 +100,34 @@ jobs:
         with:
           ref: main
 
-      - name: Build Docker image and push to docker hub
+      - name: Login to Docker
         run: |
-          docker build -t deelee333/pet_clinic_project/pet-clinic:latest .
           docker login -u deelee333 -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-          docker push deelee333/pet_clinic_project/pet-clinic:latest
 
-      # - name: Deploy to Azure Container Instances
-      #   run: |
-      #     az container create \
-      #       --resource-group <RESOURCE_GROUP_NAME> \
-      #       --name <CONTAINER_INSTANCE_NAME> \
-      #       --image <DOCKER_HUB_USERNAME>/<IMAGE_NAME>:<TAG> \
-      #       --dns-name-label <DNS_NAME_LABEL> \
-      #       --ports <PORTS> \
-      #       --cpu <CPU> \
-      #       --memory <MEMORY> \
-      #       --restart-policy Always
+      - name: Build Docker image, tag it, and push to Docker hub
+        run: |
+          docker build -t deelee333/pet_clinic_project:latest .
+          docker tag pet-project deelee333/pet_clinic_project:latest
+          docker push deelee333/pet_clinic_project:latest
+  
+  # azure:
+  #   name: Deploy to Azure Container Instances
+  #   needs: docker
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Login to Azure
+  #       uses: azure/login@v1
+  #       with:
+  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+  #     - name: Create Containter Instance
+  #       run: |
+  #         az container create \
+  #           --resource-group 25b55f34-79e2-6d69-707f-2e7264b29ccb\
+  #           --name pet_container \
+  #           --image deelee333/pet_clinic_projectproject:latest \
+  #           --ports 8080 \
+  #           --cpu 1 \
+  #           --memory 1 \
+  #           --restart-policy Always
