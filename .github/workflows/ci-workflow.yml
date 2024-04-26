@@ -136,8 +136,9 @@ jobs:
           echo "Container Started"
 
       - name: Wait for Container to Start
+        # reference: https://www.kosli.com/blog/docker-inspect-explained-the-essential-guide/#:~:text=To%20inspect%20the%20network%20settings,template%20to%20format%20the%20output.
         run: |
-          for i in {1..30}; do
+          for i in {1..20}; do
             if docker inspect -f '{{.State.Running}}' pet_clinic_container &> /dev/null; then
               echo "Container is running"
               break
@@ -165,7 +166,8 @@ jobs:
         - name: Pull Docker Image
           run: docker pull deelee333/pet_clinic_project:latest
 
-        - name: Run Latest Image
+        - name: Start New Container
           run: |
-            docker run -d -p 8080:8080 deelee333/pet_clinic_project:latest
-
+            docker run --name pet_clinic_container_local -d -p 8080:8080 deelee333/pet_clinic_project:latest
+            echo "Container Started"
+        
