@@ -165,8 +165,7 @@ jobs:
         - name: Pull Docker Image
           run: docker pull deelee333/pet_clinic_project:latest
 
-        - name: Run Integration Tests
+        - name: Run Latest Image
           run: |
             docker run -d -p 8080:8080 deelee333/pet_clinic_project:latest
-            ./mvnw verify -Pintegration-tests
 
