@@ -166,5 +166,7 @@ jobs:
           run: docker pull deelee333/pet_clinic_project:latest
 
         - name: Run Integration Tests
-          run: ./mvnw verify -Pintegration-tests
+          run: |
+            docker run -d -p 8080:8080 deelee333/pet_clinic_project:latest
+            ./mvnw verify -Pintegration-tests
 
