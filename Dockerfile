@@ -2,7 +2,6 @@ FROM openjdk:17-jdk
 
 WORKDIR /
 
-CMD ["java", "-jar", "app.jar"]
+COPY target/spring-petclinic-3.2.0-SNAPSHOT.jar /
 
-
-
+CMD ["java", "-jar", "spring-petclinic-3.2.0-SNAPSHOT.jar"]
