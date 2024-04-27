@@ -148,6 +148,9 @@ jobs:
             fi
           done
 
+      - name: Wait
+        run: sleep 10
+
       - name: Test Container
         run: |
           curl http://localhost:8080
