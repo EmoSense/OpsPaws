@@ -134,7 +134,7 @@ jobs:
         run: |
           docker run --name pet_clinic_container -d -p 8080:8080 deelee333/pet_clinic_project:latest
           echo "Container Started"
-
+    
       - name: Wait for Container to Start
         # reference: https://www.kosli.com/blog/docker-inspect-explained-the-essential-guide/#:~:text=To%20inspect%20the%20network%20settings,template%20to%20format%20the%20output.
         run: |
