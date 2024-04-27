@@ -1,4 +1,4 @@
-name: Java CI with Maven, SonarCloud, Docker and Azure
+name: Java CI with Maven, SonarCloud, and Docker Hub
 
 on:
   push:
@@ -98,7 +98,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: development
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -113,10 +113,10 @@ jobs:
           docker push deelee333/pet_clinic_project:latest
           echo "Image pushed to Docker Hub"
 
-  docker_deploy:
-    name: Deploy Docker Container
-    needs: docker
+  docker_test:
+    name: Pull Docker Image and Run Container Locally 
     runs-on: ubuntu-latest
+    needs: [docker]
 
     steps:
       - name: Stop and Remove Existing Container
@@ -136,8 +136,9 @@ jobs:
           echo "Container Started"
 
       - name: Wait for Container to Start
+        # reference: https://www.kosli.com/blog/docker-inspect-explained-the-essential-guide/#:~:text=To%20inspect%20the%20network%20settings,template%20to%20format%20the%20output.
         run: |
-          for i in {1..30}; do
+          for i in {1..20}; do
             if docker inspect -f '{{.State.Running}}' pet_clinic_container &> /dev/null; then
               echo "Container is running"
               break
@@ -147,25 +148,14 @@ jobs:
             fi
           done
 
-  post_deploy_test:
-      name: Pull Docker Image to Test Locally
-      runs-on: ubuntu-latest
-      needs: docker_deploy
+      - name: Wait
+        run: sleep 10
 
-      steps:
-        - name: Check out code
-          uses: actions/checkout@v2
+      - name: Test Container
+        run: |
+          curl http://localhost:8080
+          echo "Container is running and responding to requests"
 
-        - name: Login to Docker Hub
-          uses: docker/login-action@v2
-          with:
-            username: deelee333
-            password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      # also manually test locally
 
-        - name: Pull Docker Image
-          run: docker pull deelee333/pet_clinic_project:latest
-
-        - name: Run Latest Image
-          run: |
-            docker run -d -p 8080:8080 deelee333/pet_clinic_project:latest
-
+        
